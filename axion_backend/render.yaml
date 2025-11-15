@@ -4,4 +4,4 @@ services:
     runtime: python
     rootDir: .
     buildCommand: pip install -r requirements.txt
-    startCommand: gunicorn main:app
+    startCommand: cd /opt/render/project/src && gunicorn main:app
