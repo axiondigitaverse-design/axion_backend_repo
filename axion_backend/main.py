@@ -2,7 +2,6 @@
 from flask import Flask, request, jsonify, send_from_directory, send_file  # type: ignore
 import requests  # type: ignore
 from flask_cors import CORS  # type: ignore
-from cors_config import configure_cors
 from axion_chain import Blockchain, generate_key_pair
 from axion_ai import AxionAI
 from axion_vm import AxionVM
