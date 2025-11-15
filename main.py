@@ -5,8 +5,8 @@ from flask_cors import CORS  # type: ignore
 from axion_chain import Blockchain, generate_key_pair
 from axion_ai import AxionAI
 from axion_vm import AxionVM
-from axion_blockchain.p2p import PeerNetwork
-from axion_blockchain.file_storage import FileStorage
+from p2p import PeerNetwork
+from file_storage import FileStorage
 import os
 import time
 import sys
@@ -1916,3 +1916,4 @@ def upload_property_files(property_id):
 
 if __name__ == "__main__":
     app.run()
+
