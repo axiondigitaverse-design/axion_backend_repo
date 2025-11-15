@@ -1,0 +1,10 @@
+services:
+  - type: web
+    name: axion-backend
+    runtime: python
+    runtimeVersion: 3.13
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn main:app
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.13
