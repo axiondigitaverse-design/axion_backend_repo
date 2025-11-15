@@ -19,7 +19,7 @@ import datetime
 
 app = Flask(__name__)
 # Apply the project's CORS configuration (supports credentials for cookies)
-configure_cors(app)
+CORS(app, supports_credentials=True)
 
 # --- ECONOMIC CONSTANTS ---
 GAS_FEE = 0.01
