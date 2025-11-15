@@ -1,56 +1,20 @@
-# Axion Blockchain Core
+This is a small local backend to host user avatars for the Axion app.
 
-A modular blockchain core for Axion Digitaverse, supporting key generation, transactions, mining, balances, and acoin payments.
+Endpoints added (do not remove any existing backend endpoints in your real backend):
 
-## Usage
+- POST /api/upload-avatar
+  - form-data: avatar (file), address (string)
+  - returns JSON: { address, url }
 
-```python
-from axion_blockchain import Blockchain, generate_key_pair
+- GET /api/avatar/:address
+  - returns JSON: { address, url } or 404
 
-# Generate keys
-pub, priv = generate_key_pair("partner_username")
+- Static files served at /uploads/*
 
-# Initialize blockchain
-bc = Blockchain()
+Run locally:
 
-# Register user
-bc.add_user(pub)
+1) cd backend
+2) npm install
+3) npm start
 
-# Create and mine a transaction
-tx = bc.create_transaction(pub, "recipient_pubkey", 10)
-block = bc.mine_block(tx, miner_address=pub)
-
-# Check balance
-print(bc.get_balance(pub))
-```
-
-# Axion Digitaverse Decentralized Node
-
-## Start a node
-```sh
-python node.py 5000
-```
-
-## Add a peer (start another node)
-```sh
-python node.py 5001 http://localhost:5000
-```
-
-## API Endpoints
-- POST /api/create-user { "username": "alice" }
-- GET /api/wallet/<address>
-- POST /api/transaction { "from": "...", "to": "...", "amount": 10 }
-- POST /api/agent-deposit { "agent_address": "...", "user_address": "...", "amount": 10 }
-- POST /api/python-exec { "code": "print(2+2)", "address": "..." }
-- POST /api/add-peer { "peer_url": "http://localhost:5000" }
-- GET /api/chain
-
----
-## Credits
-
-**Tendai Njanji**  
-Blockchain Engineer, Software Engineer, Technopreneur  
-Nickname: **zimtechguru**  
-Email: njanjitendai02@gmail.com  
-![Profile](backend\uploads\Facebook_creation_1057380959835973.jpeg)
----
+This is optional — your main production backend can continue to operate. The app is written to try the production BACKEND_URL first; you can also run this local backend and point the app to it for local testing by changing `app/(tabs)/api.ts` BACKEND_URL.
