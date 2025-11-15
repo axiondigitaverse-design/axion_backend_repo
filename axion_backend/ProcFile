@@ -1,1 +1,1 @@
-web: gunicorn axion_backend.main:app
+web: sh -c "cd axion_backend && gunicorn main:app"

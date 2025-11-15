@@ -3,4 +3,5 @@ services:
     name: axion-backend
     runtime: python
     buildCommand: pip install -r requirements.txt
-    startCommand: gunicorn axion_backend.wsgi:app --bind 0.0.0.0:8000
+    # Change working dir to the package folder so imports resolve as expected
+    startCommand: sh -c 'cd axion_backend && gunicorn main:app --bind 0.0.0.0:8000'
